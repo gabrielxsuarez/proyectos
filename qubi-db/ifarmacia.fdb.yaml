@@ -1,0 +1,2040 @@
+database_name: firebird_database
+tables:
+    - name: ARTICULOS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: ESTADO
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: NOMBRE
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: PRESENTACION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: IMPORTADO
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: HELADERA
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: TROQUEL
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: CODIGODEBARRAS
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: TASAIVA
+          type: DOUBLE PRECISION
+          size: 8
+          scale: 0
+          nullable: false
+        - name: LABORATORIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: TIPODEVENTA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: CONTROLSALUDPUBLICA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: TAMANIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: FORMA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VIA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: MONODROGA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: MONOACCION
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VACUNAS
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: DESCUENTO
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: false
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: true
+        - name: VIGENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: UNIDADPOTENCIA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: POTENCIA
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: UNIDADUNIDADES
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: UNIDADES
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: PRECIOANTERIOR
+          type: DOUBLE PRECISION
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: true
+        - name: VIGENCIAANTERIOR
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: GTIN
+          type: VARCHAR
+          size: 14
+          scale: 0
+          nullable: true
+        - name: GRAVAMEN
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: SALEENMF
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: CELIACOS
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: IVA
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: PRECIOPAMI
+          type: DOUBLE PRECISION
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: true
+        - name: PORCENTAJEPAMI
+          type: DOUBLE PRECISION
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: true
+        - name: SIFAR
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: MFIOMA
+          type: DOUBLE PRECISION
+          size: 8
+          scale: -2
+          nullable: true
+        - name: IOMANORMATIZADO
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: SNOMED
+          type: VARCHAR
+          size: 32
+          scale: 0
+          nullable: true
+        - name: FECHABAJA
+          type: DATE
+          size: 4
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: ARTICULO_ALTA
+      columns:
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: ALTA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: false
+          default_value: default 'now'
+        - name: VIGENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: false
+          default_value: default 'now'
+      primary_key:
+        - ARTICULO
+    - name: ARTICULO_DROGAS
+      columns:
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DROGA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: PVALOR
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: PUNIDAD
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+      primary_key:
+        - ARTICULO
+        - DROGA
+    - name: ARTICULO_ORDENAMIENTOS
+      columns:
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: ORDENAMIENTO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: SECUENCIANOMBRE
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: ORDENPRESENTACION
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+      primary_key:
+        - ARTICULO
+        - ORDENAMIENTO
+    - name: ARTICULO_POTENCIAS
+      columns:
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: UNIDAD
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VALOR
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ARTICULO
+        - UNIDAD
+    - name: ARTICULO_UNIDADES
+      columns:
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: UNIDAD
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VALOR
+          type: DOUBLE PRECISION
+          size: 8
+          scale: 0
+          nullable: true
+      primary_key:
+        - ARTICULO
+        - UNIDAD
+    - name: ATC
+      columns:
+        - name: REGISTRO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: ATC
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: false
+      primary_key:
+        - REGISTRO
+        - ATC
+    - name: BARRASADICIONALES
+      columns:
+        - name: ACTUALIZADOR
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: false
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: CODIGO
+          type: CHAR
+          size: 16
+          scale: 0
+          nullable: false
+      primary_key:
+        - ACTUALIZADOR
+        - ID
+        - CODIGO
+    - name: COBERTURAS
+      columns:
+        - name: PRODUCTO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: OBRASOCIAL
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VALOR
+          type: DOUBLE PRECISION
+          size: 8
+          scale: 0
+          nullable: true
+        - name: TIPOVALOR
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: MENSAJEADICIONAL
+          type: VARCHAR
+          size: 50
+          scale: 0
+          nullable: true
+      primary_key:
+        - PRODUCTO
+        - OBRASOCIAL
+    - name: CONTROLESSALUDPUBLICA
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: DROGAS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: MOSTRAR
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: FERIADOS
+      columns:
+        - name: FECHA
+          type: DATE
+          size: 4
+          scale: 0
+          nullable: false
+        - name: SUMAR
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: false
+    - name: FORMAS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: LABORATORIOS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: RAZONSOCIAL
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: DOMICILIO
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: LOCALIDAD
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: PROVINCIA
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: CP
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: TELEFONOS
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: FAX
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: MAIL
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: WEB
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: CANTIDADPRESENTACIONESACTIVAS
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: LISTASAMOSTRAR
+      columns:
+        - name: IDLABORATORIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: DLABORATORIO
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: FECHA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: VIGENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: ORDEN
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: ALTAS
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+        - name: MODIFICACIONES
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+    - name: LOG_ALFABETA
+      columns:
+        - name: ORDEN
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: FECHA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: false
+        - name: OPERACION
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: TABLA
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: REGISTRO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: VIGENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: true
+        - name: EXCLUIR
+          type: CHAR
+          size: 1
+          scale: 0
+          nullable: true
+      primary_key:
+        - ORDEN
+    - name: LOG_ARTICULO_PRECIOS
+      columns:
+        - name: OBSOLESCENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: false
+          default_value: default 'now'
+        - name: ARTICULO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: PRECIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: VALOR
+          type: DOUBLE PRECISION
+          size: 8
+          scale: 0
+          nullable: true
+        - name: VIGENCIA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: false
+      primary_key:
+        - OBSOLESCENCIA
+    - name: MARCAS
+      columns:
+        - name: NOMBRE
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: false
+        - name: LABORATORIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: PRESENTACIONES
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+      primary_key:
+        - NOMBRE
+        - LABORATORIO
+    - name: MONOACCIONES
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: MOSTRAR
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: MONODROGAS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: NEW_ATC
+      columns:
+        - name: CODIGO
+          type: VARCHAR
+          size: 10
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 255
+          scale: 0
+          nullable: false
+        - name: COMENTARIO
+          type: VARCHAR
+          size: 255
+          scale: 0
+          nullable: true
+        - name: DDD
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: TIPOUNIDAD
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: CODIGOADM
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: DDDCOMENTARIO
+          type: VARCHAR
+          size: 255
+          scale: 0
+          nullable: true
+        - name: NIVEL
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+      primary_key:
+        - CODIGO
+    - name: NEW_ATC_FECHAACTUALIZACION
+      columns:
+        - name: FECHA
+          type: DATE
+          size: 4
+          scale: 0
+          nullable: true
+    - name: NEW_ATC_NIVELES
+      columns:
+        - name: ID
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: NOVEDADESWEB
+      columns:
+        - name: PRD_ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: PRD_PRESENTACION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+        - name: FECHA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+    - name: OBRASSOCIALES
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 100
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: POTENCIAS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: PROSPECTO_REGISTROS
+      columns:
+        - name: PROSPECTO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: REGISTRO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+      primary_key:
+        - PROSPECTO
+        - REGISTRO
+    - name: SUPLEMENTOS
+      columns:
+        - name: ID
+          type: VARCHAR
+          size: 32
+          scale: 0
+          nullable: false
+        - name: PRODUCTO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: CANTIDAD
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+    - name: TAMANIOS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: TIPOSDEVENTA
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: TROQUELADICIONALES
+      columns:
+        - name: ACTUALIZADOR
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: false
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: TROQUEL
+          type: FLOAT
+          size: 4
+          scale: 0
+          nullable: false
+      primary_key:
+        - ACTUALIZADOR
+        - ID
+        - TROQUEL
+    - name: UNIDADES
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: VIAS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 62
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+views: []
+procedures:
+    - name: ALTA_SETEARPRECIOYVIGENCIA
+      parameters:
+        - name: UNORDEN
+          type: INTEGER
+          direction: IN
+      definition: "declare variable FECHANUEVA date;\r\ndeclare variable FECHA date;\r\ndeclare variable VIGENCIA date;\r\ndeclare variable VIGENCIANUEVA date;\r\ndeclare variable REGISTRO integer;\r\ndeclare variable ORDENNUEVO integer;\r\ndeclare variable PRECIO double precision;\r\ndeclare variable PRECIONUEVO double precision;\r\ndeclare variable OPERACION char(1);\r\nbegin\r\n  select fecha, registro, precio, vigencia\r\n  from log_alfabeta\r\n  where orden = :unOrden\r\n  into :fecha, :registro, :precio, :vigencia;\r\n  for\r\n    select orden, fecha, precio, vigencia, operacion\r\n    from log_alfabeta\r\n    where registro = :registro and (operacion = 'P' or operacion = 'A' or operacion = 'M') and orden < :unorden and (fecha > :fecha-60)\r\n    into :ordenNuevo, :fechaNueva, :precioNuevo, :vigenciaNueva, :operacion\r\n  do begin\r\n    if (fechaNueva = fecha) then begin\r\n        if ((precio <> precioNuevo) or (vigencia <> vigenciaNueva)) then begin\r\n            if ((operacion = 'A') or (operacion = 'M')) then\r\n                update log_alfabeta\r\n                set precio = :precio, vigencia = :vigencia\r\n                where orden = :ordenNuevo;\r\n            if (operacion = 'P') then\r\n                delete from log_alfabeta where orden = :ordennuevo;\r\n        end\r\n    end else begin\r\n        if ((fechanueva < fecha) and (vigencianueva > vigencia)) then begin\r\n            delete from log_alfabeta where orden = :ordennuevo;\r\n        if (operacion ='A') then\r\n         update log_alfabeta set operacion = 'A'\r\n         where orden =:unOrden;\r\n       end\r\n    end\r\n  end\r\nend"
+    - name: API_PORNOMBRE
+      parameters:
+        - name: IDPRODUCTO
+          type: INTEGER
+          direction: OUT
+        - name: TIPOUSUARIO
+          type: CHAR
+          direction: IN
+        - name: TIPOBUSQUEDA
+          type: CHAR
+          direction: IN
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: TEXTOBUSQUEDA
+          type: VARCHAR
+          direction: IN
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: SPONSOR
+          type: INTEGER
+          direction: IN
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: BUSCARPOR
+          type: CHAR
+          direction: IN
+        - name: URLPROSPECTOV
+          type: VARCHAR
+          direction: OUT
+        - name: IDTABLA
+          type: INTEGER
+          direction: IN
+        - name: PRECIO
+          type: VARCHAR
+          direction: OUT
+        - name: VIGENCIA
+          type: VARCHAR
+          direction: OUT
+        - name: TOKEN
+          type: VARCHAR
+          direction: IN
+        - name: DDROGA
+          type: VARCHAR
+          direction: OUT
+        - name: DACCION
+          type: VARCHAR
+          direction: OUT
+        - name: IS_SPONSORED
+          type: CHAR
+          direction: OUT
+      definition: "declare variable IDLABORATORIO integer;\r\ndeclare variable MONOACCION integer;\r\ndeclare variable MONODROGA integer;\r\ndeclare variable PRECIOPAMI numeric(10,2);\r\ndeclare variable PPAMI numeric(10,2);\r\ndeclare variable SIFAR char(1);\r\ndeclare variable MFIOMA numeric(10,2);\r\ndeclare variable IOMANORMATIZADO char(1);\r\ndeclare variable PROSPECTO integer;\r\ndeclare variable PRECIOANTERIOR varchar(16);\r\ndeclare variable VIGENCIAANTERIOR varchar(12);\r\ndeclare variable VIGENCIADATE date;\r\nbegin\r\n   if (buscarPor='N') then\r\n      for\r\n         select nombre, laboratorio, descripcion from\r\n            (select m.nombre, m.laboratorio, l.descripcion\r\n            from marcas m\r\n            join laboratorios l on l.id=m.laboratorio\r\n            where m.nombre collate ES_ES_CI_AI starting with :textoBusqueda\r\n            order by m.nombre collate ES_ES_CI_AI, l.descripcion collate ES_ES_CI_AI)\r\n            union all\r\n            select nombre, laboratorio, descripcion from\r\n            (select m.nombre, m.laboratorio, l.descripcion\r\n            from marcas m\r\n            join laboratorios l on l.id=m.laboratorio\r\n            where (m.nombre collate ES_ES_CI_AI containing :textoBusqueda) and (not m.nombre collate ES_ES_CI_AI starting with :textoBusqueda)\r\n            order by m.nombre collate ES_ES_CI_AI, l.descripcion collate ES_ES_CI_AI)\r\n        into :nombre, :idLaboratorio, :laboratorio\r\n    do begin\r\n      if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n      else\r\n         is_sponsored = 'N';\r\n\r\n      for\r\n        select id, presentacion,\r\n        cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, monoAccion,\r\n        cast(round(precioAnterior, 2) as varChar(16)), EXTRACT(DAY FROM vigenciaAnterior) || '/' || EXTRACT(MONTH FROM vigenciaAnterior) || '/' || EXTRACT(YEAR FROM vigenciaAnterior)\r\n        from articulos\r\n        where nombre=:nombre and laboratorio=:idLaboratorio and estado = 'A'\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :monoAccion, :precioAnterior, :vigenciaAnterior\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n        else\r\n         urlProspectoV = '';\r\n\r\n        if (vigenciaDate > current_date) then begin\r\n         precio = precioanterior;\r\n         vigencia = vigenciaAnterior;\r\n        end\r\n\r\n        suspend;\r\n      end\r\n    end\r\n   \r\n\r\n    if (buscarPor='L') then begin\r\n\r\n      idLaboratorio = idTabla;\r\n      select descripcion from laboratorios where id=:idTabla into :laboratorio;\r\n      if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n      else\r\n         is_sponsored = 'N';\r\n\r\n      for\r\n        select id, presentacion, cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, monoAccion, nombre,\r\n        cast(round(precioAnterior, 2) as varChar(16)), EXTRACT(DAY FROM vigenciaAnterior) || '/' || EXTRACT(MONTH FROM vigenciaAnterior) || '/' || EXTRACT(YEAR FROM vigenciaAnterior)\r\n        from articulos\r\n        where laboratorio=:idTabla and estado = 'A'\r\n        order by nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate,  :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :monoAccion, :nombre, :precioAnterior, :vigenciaAnterior\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n        else\r\n         urlProspectoV = '';\r\n\r\n\r\n        if (vigenciaDate > current_date) then begin\r\n         precio = precioanterior;\r\n         vigencia = vigenciaAnterior;\r\n        end\r\n\r\n\r\n        suspend;\r\n      end\r\n    end\r\n\r\n\r\n    if (buscarPor = 'D') then begin\r\n      for\r\n         select ad.articulo, a.presentacion, cast(round(a.precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n         coalesce(a.precioPami,0),\r\n         coalesce(a.porcentajePami, 0), coalesce(a.sifar, 'N'), coalesce(round(a.mfIoma, 2), 0), coalesce(a.iomaNormatizado,'N'), a.monoAccion, a.monoDroga, a.nombre, a.laboratorio,\r\n         cast(round(precioAnterior, 2) as varChar(16)), EXTRACT(DAY FROM vigenciaAnterior) || '/' || EXTRACT(MONTH FROM vigenciaAnterior) || '/' || EXTRACT(YEAR FROM vigenciaAnterior)\r\n         from articulo_drogas ad\r\n         join articulos a on a.id=ad.articulo\r\n         where ad.droga=:idTabla and a.estado='A'\r\n         order by a.nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n         into :idproducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoAccion, :monoDroga, :nombre, :idLaboratorio, :precioAnterior, :vigenciaAnterior\r\n      do begin\r\n        if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n        else\r\n         is_sponsored = 'N';\r\n\r\n\r\n        select descripcion from laboratorios where id=:idlaboratorio into :laboratorio;\r\n        select descripcion from monoDrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n      else\r\n         urlProspectoV = '';\r\n\r\n         if (vigenciaDate > current_date) then begin\r\n          precio = precioanterior;\r\n          vigencia = vigenciaAnterior;\r\n         end\r\n\r\n        suspend;\r\n      end\r\n   end\r\n\r\n\r\n\r\n    if (buscarPor='A') then begin\r\n\r\n      monoAccion = idTabla;\r\n      select descripcion from monoAcciones where id=:idTabla into :dAccion;\r\n\r\n      for\r\n        select id, presentacion, cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, nombre, laboratorio,\r\n        cast(round(precioAnterior, 2) as varChar(16)), EXTRACT(DAY FROM vigenciaAnterior) || '/' || EXTRACT(MONTH FROM vigenciaAnterior) || '/' || EXTRACT(YEAR FROM vigenciaAnterior)\r\n        from articulos\r\n        where monoaccion=:idTabla and estado = 'A'\r\n        order by nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :nombre, :idLaboratorio, :precioAnterior, :vigenciaAnterior\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n\r\n        select descripcion from laboratorios where id=:idlaboratorio into :laboratorio;\r\n        if (idLaboratorio=sponsor) then\r\n          is_sponsored = 'S';\r\n        else\r\n          is_sponsored = 'N';\r\n\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n       else\r\n         urlProspectoV = '';\r\n\r\n       if (vigenciaDate > current_date) then begin\r\n         precio = precioanterior;\r\n         vigencia = vigenciaAnterior;\r\n       end\r\n        suspend;\r\n      end\r\n    end\r\n\r\nend"
+    - name: APPP_PORNOMBRE
+      parameters:
+        - name: IDPRODUCTO
+          type: INTEGER
+          direction: OUT
+        - name: TIPOUSUARIO
+          type: CHAR
+          direction: IN
+        - name: TIPOBUSQUEDA
+          type: CHAR
+          direction: IN
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: TEXTOBUSQUEDA
+          type: VARCHAR
+          direction: IN
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: SPONSOR
+          type: INTEGER
+          direction: IN
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: BUSCARPOR
+          type: CHAR
+          direction: IN
+        - name: URLPROSPECTOV
+          type: VARCHAR
+          direction: OUT
+        - name: IDTABLA
+          type: INTEGER
+          direction: IN
+        - name: INFOPRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: IS_SPONSORED
+          type: CHAR
+          direction: OUT
+        - name: TOKEN
+          type: VARCHAR
+          direction: IN
+      definition: "declare variable IDLABORATORIO integer;\r\ndeclare variable MONOACCION integer;\r\ndeclare variable MONODROGA integer;\r\ndeclare variable PRECIO varchar(16);\r\ndeclare variable VIGENCIA varchar(12);\r\ndeclare variable PRECIOPAMI numeric(10,2);\r\ndeclare variable PPAMI numeric(10,2);\r\ndeclare variable SIFAR char(1);\r\ndeclare variable MFIOMA numeric(10,2);\r\ndeclare variable IOMANORMATIZADO char(1);\r\ndeclare variable DDROGA varchar(62);\r\ndeclare variable DACCION varchar(62);\r\ndeclare variable PROSPECTO integer;\r\ndeclare variable PRECIOANTERIOR varchar(16);\r\ndeclare variable VIGENCIAANTERIOR varchar(12);\r\ndeclare variable VIGENCIADATE timestamp;\r\ndeclare variable GRAVAMEN char(1);\r\nbegin\r\n   if (buscarPor='N') then\r\n      for\r\n         select nombre, laboratorio, descripcion from\r\n            (select m.nombre, m.laboratorio, l.descripcion\r\n            from marcas m\r\n            join laboratorios l on l.id=m.laboratorio\r\n            where m.nombre collate ES_ES_CI_AI starting with :textoBusqueda\r\n            order by m.nombre collate ES_ES_CI_AI, l.descripcion collate ES_ES_CI_AI)\r\n            union all\r\n            select nombre, laboratorio, descripcion from\r\n            (select m.nombre, m.laboratorio, l.descripcion\r\n            from marcas m\r\n            join laboratorios l on l.id=m.laboratorio\r\n            where (m.nombre collate ES_ES_CI_AI containing :textoBusqueda) and (not m.nombre collate ES_ES_CI_AI starting with :textoBusqueda)\r\n            order by m.nombre collate ES_ES_CI_AI, l.descripcion collate ES_ES_CI_AI)\r\n        into :nombre, :idLaboratorio, :laboratorio\r\n    do begin\r\n      if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n      else\r\n         is_sponsored = 'N';\r\n\r\n      for\r\n        select id, presentacion,\r\n        cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, monoAccion,\r\n        cast(round(precioAnterior, 2) as varChar(16)), EXTRACT(DAY FROM vigenciaAnterior) || '/' || EXTRACT(MONTH FROM vigenciaAnterior) || '/' || EXTRACT(YEAR FROM vigenciaAnterior), gravamen\r\n        from articulos\r\n        where nombre=:nombre and laboratorio=:idLaboratorio and estado = 'A'\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :monoAccion, :precioAnterior, :vigenciaAnterior, :gravamen\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n        if (vigenciaDate > CURRENT_DATE) then begin\r\n          precio = precioAnterior;\r\n          vigencia = vigenciaAnterior;\r\n        end\r\n\r\n        infoPresentacion =\r\n        '  '  || dDroga || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n        '  '  || dAccion || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n\r\n        '  Precio: ' || precio || '     vig. '  || vigencia || ASCII_CHAR(13)||ASCII_CHAR(10);\r\n\r\n        if (gravamen='S') then\r\n           infoPresentacion = infopresentacion || '  El precio no incluye gravamenes u otros' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (precioPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  Precio PAMI: ' || cast(round(precioPami, 2) as varChar(12)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (pPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  % Cob. PAMI: ' || cast(round(pPami, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (sifar = 'S') then\r\n            infoPresentacion = infoPresentacion || '  COBERTURA SIFAR' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (mfIOma > 0) then\r\n            infoPresentacion = infoPresentacion || '  M.F. IOMA: ' || cast(round(mfIoma, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (iomaNormatizado = 'S') then\r\n            infoPresentacion = infoPresentacion || '  IOMA NORMATIZADO' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n        else\r\n         urlProspectoV = '';\r\n\r\n        suspend;\r\n      end\r\n    end\r\n   \r\n\r\n    if (buscarPor='L') then begin\r\n\r\n      idLaboratorio = idTabla;\r\n      select descripcion from laboratorios where id=:idTabla into :laboratorio;\r\n      if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n      else\r\n         is_sponsored = 'N';\r\n\r\n      for\r\n        select id, presentacion, cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, monoAccion, nombre, gravamen\r\n        from articulos\r\n        where laboratorio=:idTabla and estado = 'A'\r\n        order by nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :monoAccion, :nombre, :gravamen\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n        if (vigenciaDate > CURRENT_DATE) then begin\r\n          precio = precioAnterior;\r\n          vigencia = vigenciaAnterior;\r\n        end\r\n\r\n        infoPresentacion = \r\n         '  '  || dDroga || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n         '  '  || dAccion || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n\r\n        '  Precio: ' || precio || '     vig. '  || vigencia || ASCII_CHAR(13)||ASCII_CHAR(10);\r\n\r\n        if (gravamen='S') then\r\n           infoPresentacion = infopresentacion || '  El precio no incluye gravamenes u otros' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (precioPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  Precio PAMI: ' || cast(round(precioPami, 2) as varChar(12)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (pPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  % Cob. PAMI: ' || cast(round(pPami, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (sifar = 'S') then\r\n            infoPresentacion = infoPresentacion || '  COBERTURA SIFAR' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (mfIOma > 0) then\r\n            infoPresentacion = infoPresentacion || '  M.F. IOMA: ' || cast(round(mfIoma, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (iomaNormatizado = 'S') then\r\n            infoPresentacion = infoPresentacion || '  IOMA NORMATIZADO' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n        else\r\n         urlProspectoV = '';\r\n\r\n        suspend;\r\n      end\r\n    end\r\n\r\n\r\n    if (buscarPor = 'D') then begin\r\n      for\r\n         select ad.articulo, a.presentacion, cast(round(a.precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n         coalesce(a.precioPami,0),\r\n         coalesce(a.porcentajePami, 0), coalesce(a.sifar, 'N'), coalesce(round(a.mfIoma, 2), 0), coalesce(a.iomaNormatizado,'N'), a.monoAccion, a.monoDroga, a.nombre, a.laboratorio, a.gravamen\r\n         from articulo_drogas ad\r\n         join articulos a on a.id=ad.articulo\r\n         where ad.droga=:idTabla and a.estado='A'\r\n         order by a.nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n         into :idproducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoAccion, :monoDroga, :nombre, :idLaboratorio, :gravamen\r\n      do begin\r\n        if (idLaboratorio=sponsor) then\r\n         is_sponsored = 'S';\r\n        else\r\n         is_sponsored = 'N';\r\n\r\n\r\n        select descripcion from laboratorios where id=:idlaboratorio into :laboratorio;\r\n        select descripcion from monoDrogas where id=:monoDroga into :dDroga;\r\n        select descripcion from monoAcciones where id=:monoAccion into :dAccion;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n\r\n        if (vigenciaDate > CURRENT_DATE) then begin\r\n          precio = precioAnterior;\r\n          vigencia = vigenciaAnterior;\r\n        end\r\n\r\n        infoPresentacion = \r\n         '  '  || dDroga || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n         '  '  || dAccion || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n\r\n        '  Precio: ' || precio || '     vig. '  || vigencia || ASCII_CHAR(13)||ASCII_CHAR(10);\r\n\r\n        if (gravamen='S') then\r\n           infoPresentacion = infopresentacion || '  El precio no incluye gravamenes u otros' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (precioPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  Precio PAMI: ' || cast(round(precioPami, 2) as varChar(12)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (pPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  % Cob. PAMI: ' || cast(round(pPami, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (sifar = 'S') then\r\n            infoPresentacion = infoPresentacion || '  COBERTURA SIFAR' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (mfIOma > 0) then\r\n            infoPresentacion = infoPresentacion || '  M.F. IOMA: ' || cast(round(mfIoma, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (iomaNormatizado = 'S') then\r\n            infoPresentacion = infoPresentacion || '  IOMA NORMATIZADO' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n      else\r\n         urlProspectoV = '';\r\n\r\n        suspend;\r\n      end\r\n   end\r\n\r\n\r\n\r\n    if (buscarPor='A') then begin\r\n\r\n      monoAccion = idTabla;\r\n      select descripcion from monoAcciones where id=:idTabla into :dAccion;\r\n\r\n      for\r\n        select id, presentacion, cast(round(precio, 2) as varChar(16)), EXTRACT(DAY FROM vigencia) || '/' || EXTRACT(MONTH FROM vigencia) || '/' || EXTRACT(YEAR FROM vigencia), vigencia,\r\n        coalesce(precioPami,0),\r\n        coalesce(porcentajePami, 0), coalesce(sifar, 'N'), coalesce(round(mfIoma, 2), 0), coalesce(iomaNormatizado,'N'), monoDroga, nombre, laboratorio, gravamen\r\n        from articulos\r\n        where monoaccion=:idTabla and estado = 'A'\r\n        order by nombre collate ES_ES_CI_AI, presentacion collate ES_ES_CI_AI\r\n        into :idProducto, :presentacion, :precio, :vigencia, :vigenciaDate, :precioPami, :pPami, :sifar, :mfIoma, :iomaNormatizado, :monoDroga, :nombre, :idLaboratorio, :gravamen\r\n      do begin\r\n        select descripcion from monodrogas where id=:monoDroga into :dDroga;\r\n        prospecto = null;\r\n        select first 1 prospecto from prospecto_registros where registro=:idProducto into :prospecto;\r\n\r\n\r\n        select descripcion from laboratorios where id=:idlaboratorio into :laboratorio;\r\n        if (idLaboratorio=sponsor) then\r\n          is_sponsored = 'S';\r\n        else\r\n          is_sponsored = 'N';\r\n\r\n\r\n        if (vigenciaDate > CURRENT_DATE) then begin\r\n          precio = precioAnterior;\r\n          vigencia = vigenciaAnterior;\r\n        end\r\n\r\n        infoPresentacion = \r\n         '  '  || dDroga || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n         '  '  || dAccion || ASCII_CHAR(13) || ASCII_CHAR(10) ||\r\n\r\n        '  Precio: ' || precio || '     vig. '  || vigencia || ASCII_CHAR(13)||ASCII_CHAR(10);\r\n\r\n        if (gravamen='S') then\r\n           infoPresentacion = infopresentacion || '  El precio no incluye gravamenes u otros' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (precioPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  Precio PAMI: ' || cast(round(precioPami, 2) as varChar(12)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (pPami > 0) then\r\n            infoPresentacion = infoPresentacion || '  % Cob. PAMI: ' || cast(round(pPami, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (sifar = 'S') then\r\n            infoPresentacion = infoPresentacion || '  COBERTURA SIFAR' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (mfIOma > 0) then\r\n            infoPresentacion = infoPresentacion || '  M.F. IOMA: ' || cast(round(mfIoma, 2) as varChar(10)) || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n        if (iomaNormatizado = 'S') then\r\n            infoPresentacion = infoPresentacion || '  IOMA NORMATIZADO' || ASCII_CHAR(13) || ASCII_CHAR(10);\r\n\r\n        if (prospecto is not null) then\r\n         urlProspectoV = 'https://www.alfabeta.net/FARMACO/redirect.jsp?id=P' || cast(prospecto as varChar(6)) || '.HTM&token=' || token;\r\n       else\r\n         urlProspectoV = '';\r\n\r\n        suspend;\r\n      end\r\n    end\r\n\r\nend"
+    - name: APPP_TABLAS
+      parameters:
+        - name: ID
+          type: INTEGER
+          direction: OUT
+        - name: TABLA
+          type: CHAR
+          direction: IN
+        - name: TIPOBUSQUEDA
+          type: CHAR
+          direction: IN
+        - name: DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: TEXTOBUSQUEDA
+          type: VARCHAR
+          direction: IN
+        - name: SPONSOR
+          type: INTEGER
+          direction: IN
+      definition: "begin\r\n   if (tabla = 'D') then\r\n      for\r\n         select id, descripcion from\r\n         (select id, descripcion from drogas where descripcion collate ES_ES_CI_AI starting with :textobusqueda and mostrar='S' order by descripcion collate ES_ES_CI_AI)\r\n         union all\r\n         select id, descripcion from\r\n         (select id, descripcion from drogas where (descripcion collate ES_ES_CI_AI containing :textobusqueda and mostrar='S') and\r\n          (not descripcion collate ES_ES_CI_AI starting with :textobusqueda and mostrar='S') order by descripcion collate ES_ES_CI_AI)\r\n         into :id, :descripcion\r\n      do\r\n         suspend;\r\n   if (tabla = 'A') then\r\n      for\r\n         select id, descripcion from\r\n         (select id, descripcion from monoacciones where descripcion collate ES_ES_CI_AI starting with :textobusqueda order by descripcion collate ES_ES_CI_AI)\r\n         union all\r\n          select id, descripcion from\r\n         (select id, descripcion from monoacciones where (descripcion collate ES_ES_CI_AI containing :textobusqueda) and\r\n                     (not descripcion collate ES_ES_CI_AI starting with :textobusqueda) order by descripcion collate ES_ES_CI_AI)\r\n        into :id, :descripcion\r\n      do\r\n         suspend;\r\n   if (tabla = 'L') then\r\n      for\r\n         select id, descripcion from\r\n         (select id, descripcion from laboratorios where descripcion collate ES_ES_CI_AI starting with :textobusqueda order by descripcion collate ES_ES_CI_AI)\r\n         union all\r\n         select id, descripcion from\r\n         (select id, descripcion from laboratorios where (descripcion collate ES_ES_CI_AI containing :textobusqueda) and\r\n                     (not descripcion collate ES_ES_CI_AI starting with :textobusqueda)\r\n         order by descripcion collate ES_ES_CI_AI)\r\n        into :id, :descripcion\r\n      do\r\n         suspend;\r\nend"
+    - name: BASECOMPLETA
+      parameters:
+        - name: ID
+          type: INTEGER
+          direction: OUT
+        - name: ESTADO
+          type: VARCHAR
+          direction: OUT
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: IMPORTADO
+          type: VARCHAR
+          direction: OUT
+        - name: HELADERA
+          type: VARCHAR
+          direction: OUT
+        - name: TROQUEL
+          type: VARCHAR
+          direction: OUT
+        - name: CODIGODEBARRAS
+          type: VARCHAR
+          direction: OUT
+        - name: IVA
+          type: CHAR
+          direction: OUT
+        - name: LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: TIPODEVENTA
+          type: INTEGER
+          direction: OUT
+        - name: CONTROLSALUDPUBLICA
+          type: INTEGER
+          direction: OUT
+        - name: TAMANIO
+          type: INTEGER
+          direction: OUT
+        - name: FORMA
+          type: INTEGER
+          direction: OUT
+        - name: VIA
+          type: INTEGER
+          direction: OUT
+        - name: MONODROGA
+          type: INTEGER
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: MONOACCION
+          type: INTEGER
+          direction: OUT
+        - name: UNIDADPOTENCIA
+          type: INTEGER
+          direction: OUT
+        - name: POTENCIA
+          type: VARCHAR
+          direction: OUT
+        - name: UNIDADUNIDADES
+          type: INTEGER
+          direction: OUT
+        - name: UNIDADES
+          type: INTEGER
+          direction: OUT
+        - name: VIGENCIAANTERIOR
+          type: TIMESTAMP
+          direction: OUT
+        - name: GTIN
+          type: VARCHAR
+          direction: OUT
+        - name: GRAVAMEN
+          type: CHAR
+          direction: OUT
+        - name: SALEENMF
+          type: CHAR
+          direction: OUT
+        - name: CELIACOS
+          type: CHAR
+          direction: OUT
+        - name: PRECIOANTERIOR
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: PAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: IOMA
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: SIFAR
+          type: CHAR
+          direction: OUT
+        - name: MENSAJEPAMI
+          type: VARCHAR
+          direction: OUT
+        - name: MENSAJEIOMA
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIOPAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: SNOMED
+          type: VARCHAR
+          direction: OUT
+      definition: "declare variable HORA integer;\r\ndeclare variable UNAVIGENCIA date;\r\nbegin\r\n   select extract(hour from current_timeSTAMP) from rdb$database into :hora;\r\n   unaVigencia = 'TODAY';\r\n   if (hora>16) then\r\n      unavigencia = unaVigencia + 1;\r\n\r\n   for\r\n      SELECT id, estado, nombre, presentacion, importado, heladera,\r\n      troquel, codigodebarras, iva, laboratorio, tipodeventa, controlsaludpublica,\r\n      tamanio, forma, via, monodroga, vigencia, precio, monoaccion, unidadpotencia,\r\n      potencia, unidadunidades, unidades, vigenciaanterior, gtin, gravamen, saleenmf, celiacos, precioAnterior,\r\n      precioPami, sifar, porcentajePami, mfIoma, iomaNormatizado, snomed\r\n      FROM articulos\r\n      WHERE id < 100000\r\n      into :id, :estado, :nombre, :presentacion, :importado, :heladera,\r\n      :troquel, :codigodebarras, :iva, :laboratorio, :tipodeventa, :controlsaludpublica,\r\n      :tamanio, :forma, :via, :monodroga, :vigencia, :precio, :monoaccion, :unidadpotencia,\r\n      :potencia, :unidadunidades, :unidades, :vigenciaanterior, :gtin, :gravamen, :saleenmf, :celiacos, precioAnterior,\r\n      :precioPami, :sifar, :pami, :ioma, :mensajeIoma, :snomed\r\n   do begin\r\n       if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (vigencia<=unaVigencia) then\r\n         suspend;\r\n      else\r\n         if ((precioanterior > 0) and (vigenciaanterior<=unaVigencia)) then begin\r\n            precio = precioAnterior;\r\n            vigencia = vigenciaAnterior;\r\n            suspend;\r\n         end\r\n  end\r\nend"
+    - name: CALCULARLISTASNUEVAS
+      parameters:
+        - name: UNAVIGENCIA
+          type: TIMESTAMP
+          direction: IN
+      definition: "declare variable IDLABORATORIO integer;\r\ndeclare variable LABORATORIO varchar(62);\r\ndeclare variable FECHA date;\r\ndeclare variable VIGENCIA date;\r\ndeclare variable ALTAS integer;\r\ndeclare variable PRECIOS integer;\r\ndeclare variable MAXORDEN integer;\r\nbegin\r\n   delete from listasamostrar;\r\n   for\r\n      select idlaboratorio, vigencia, fecha, Altas, Precios, maxorden\r\n      from calcularlistasnuevas2(:unavigencia)\r\n      order by maxorden\r\n      into :idlaboratorio, :vigencia, :fecha, :altas, :precios, :maxorden\r\n    do begin\r\n        select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n        if (idlaboratorio <> 203) then\r\n           insert into listasamostrar values(:idLaboratorio, :laboratorio, :fecha, :vigencia, gen_id(ordenlistaamostrar, 1), :altas, :precios);\r\n    end\r\nend"
+    - name: CALCULARLISTASNUEVAS1
+      parameters:
+        - name: IDLABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: UNAVIGENCIA
+          type: TIMESTAMP
+          direction: IN
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: FECHA
+          type: TIMESTAMP
+          direction: OUT
+        - name: LOGOPERACION
+          type: CHAR
+          direction: OUT
+        - name: PRECIOS
+          type: INTEGER
+          direction: OUT
+        - name: ALTAS
+          type: INTEGER
+          direction: OUT
+        - name: MAXIMOORDEN
+          type: INTEGER
+          direction: OUT
+      definition: "begin\r\nfor\r\n   select\r\n   a.laboratorio, log.vigencia, log.fecha, log.operacion, count(*), 0\r\n   from log_alfabeta log join articulos a on a.id = log.registro\r\n   where (log.fecha > CURRENT_date-10) and log.tabla = 'Artimaes'\r\n   and log.operacion = 'P' and log.vigencia < :unavigencia and ((log.vigencia +2) >= log.fecha)\r\n   and a.estado = 'A' and a.id < 100000\r\n   group by a.laboratorio, log.vigencia, log.fecha, log.operacion\r\n   union\r\n   select\r\n   a.laboratorio, log.vigencia, log.fecha, log.operacion, 0, count(*)\r\n   from log_alfabeta log join articulos a on a.id = log.registro\r\n   where (log.fecha > current_date-10) and log.tabla = 'Artimaes'\r\n   and log.operacion = 'A' and log.vigencia < :unavigencia and ((log.vigencia +2) >= log.fecha)\r\n   and a.estado = 'A' and a.id < 100000\r\n   group by a.laboratorio, log.vigencia, log.fecha, log.operacion\r\n   into :idLaboratorio, :vigencia, :fecha, :logoperacion, :precios, :altas\r\n   do begin\r\n      select max(orden)\r\n      from log_alfabeta log join articulos a on a.id = log.registro\r\n      where a.laboratorio = :idLaboratorio and log.vigencia = :vigencia\r\n      and log.fecha = :fecha and log.operacion = :logoperacion\r\n      and a.estado = 'A' and a.id < 100000\r\n      into :maximoOrden;\r\n      suspend;\r\n   end\r\nend"
+    - name: CALCULARLISTASNUEVAS2
+      parameters:
+        - name: IDLABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: UNAVIGENCIA
+          type: TIMESTAMP
+          direction: IN
+        - name: FECHA
+          type: TIMESTAMP
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: ALTAS
+          type: INTEGER
+          direction: OUT
+        - name: PRECIOS
+          type: INTEGER
+          direction: OUT
+        - name: MAXORDEN
+          type: INTEGER
+          direction: OUT
+      definition: "\r\nbegin\r\n   for\r\n      select idlaboratorio, vigencia, fecha, sum(Altas), sum(Precios), max(maximoorden)\r\n      from calcularlistasnuevas1(:unavigencia)\r\n      group by idlaboratorio, vigencia, fecha\r\n      into :idlaboratorio, :vigencia, :fecha, :altas, :precios, :maxorden\r\n    do\r\n      suspend;\r\nend"
+    - name: CALCULARSUPLEMENTOS
+      parameters:
+        - name: MF
+          type: VARCHAR
+          direction: IN
+        - name: LOG
+          type: INTEGER
+          direction: IN
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: IN
+        - name: ESBASECOMPLETA
+          type: CHAR
+          direction: IN
+      definition: "declare variable REGISTRO integer;\r\ndeclare variable CANTIDAD integer;\r\nbegin\r\n    if (esBaseCompleta = 'S') then\r\n        delete from suplementos where id = :mf;\r\n\r\n    for\r\n        select distinct registro\r\n        from log_alfabeta\r\n        where (orden > :log and tabla = 'Artimaes' and registro<100000 and registro<>2 and vigencia<:vigencia) and\r\n        ((operacion in('P', 'A')) or (operacion ='M' and excluir='W'))\r\n        into :registro\r\n    do begin\r\n        insert into suplementos(id, producto) values(:mf, :registro);\r\n    end\r\n    select count(*) from suplementos where id = :mf into :cantidad;\r\n    update suplementos set cantidad = :cantidad where id = :mf;\r\nend"
+    - name: CALC_PRESENTACIONESPRODUCTO
+      parameters: []
+      definition: "declare variable NOMBRE varchar(62);\r\ndeclare variable LABORATORIO integer;\r\ndeclare variable CANTIDAD integer;\r\ndeclare variable REGISTRO integer;\r\nbegin\r\n   for\r\n      select registro from log_alfabeta where operacion = 'B' and vigencia=cast('today' as date) into :registro\r\n   do\r\n      update articulos set estado = 'I' where id=:registro;\r\n\r\n   delete from marcas;\r\n   for\r\n      select nombre, laboratorio, count(*)\r\n      from articulos\r\n      where estado = 'A' and ((vigencia <= 'today') or ((vigenciaAnterior <= 'today') and (precioAnterior > 0)))\r\n      group by nombre, laboratorio\r\n      into :nombre, :laboratorio, :cantidad\r\n   do begin\r\n      insert into marcas(nombre, laboratorio, presentaciones)\r\n      values(:nombre, :laboratorio, :cantidad);\r\n   end\r\nend"
+    - name: CONSULTAPARAQR
+      parameters:
+        - name: UNADROGAMF
+          type: INTEGER
+          direction: IN
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIO
+          type: BIGINT
+          direction: OUT
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIOAFILIADOPAMI
+          type: BIGINT
+          direction: OUT
+        - name: MFIOMA
+          type: BIGINT
+          direction: OUT
+        - name: GRUPO
+          type: VARCHAR
+          direction: OUT
+        - name: VIGENCIA
+          type: DATE
+          direction: OUT
+        - name: TEXTOIOMA
+          type: VARCHAR
+          direction: OUT
+      definition: "declare variable IOMANORMATIZADO char(1);\r\ndeclare variable PORCENTAJEPAMI numeric(10,2);\r\ndeclare variable PRECIOPAMI numeric(10,2);\r\nbegin\r\n     for\r\n          select nombre, presentacion, precio, vigencia, l.descripcion as laboratorio,\r\n          f.descripcion || '-' || potencia || '-' || cast(unidades as varchar(7)) ||\r\n           '-' || cast(unidadPotencia as varchar(5)) || '-' ||\r\n          cast(unidadUnidades as varchar(5)), coalesce(mfIoma, 0), iomaNormatizado,\r\n          coalesce(precioPami, 0), coalesce(porcentajepami, 0)\r\n          from articulos a\r\n          join laboratorios l on a.laboratorio=l.id\r\n          join formas f on a.forma=f.id\r\n          where estado='A' and tamanio<>11 and monodroga=:unaDrogaMf and (vigencia>current_date-180)\r\n          into :nombre, :presentacion, :precio, :vigencia, :laboratorio,\r\n          :grupo, :mfIoma, :iomaNormatizado, :precioPami, :porcentajePami\r\n     do begin\r\n        precioAfiliadoPami = precio;\r\n        if (porcentajePami>0) then begin\r\n           if (precioPami>0) then\r\n              precioAfiliadoPami = preciopami - (precioPami*porcentajePami/100);\r\n           else\r\n               precioAfiliadoPami = precio - (precio*porcentajePami/100);\r\n        end\r\n\r\n        textoIoma = '';\r\n        if (mfIoma>0) then begin\r\n           if (iomaNormatizado='S') then\r\n              textoIoma = 'IOMA NORMATIZADO';\r\n           else\r\n              textoIoma = 'Cobertura Monto Fijo';\r\n        end\r\n\r\n\r\n        suspend;\r\n     end\r\n\r\n\r\n\r\n\r\nend"
+    - name: DEVOLVERPRECIOSVADEMECUM
+      parameters:
+        - name: PRODUCTOVADEMECUM
+          type: INTEGER
+          direction: IN
+        - name: REGISTRO
+          type: INTEGER
+          direction: OUT
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: FECHAVIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+      definition: "\r\nDECLARE VARIABLE ESTADO CHAR(1);\r\nDECLARE VARIABLE CODIGOLABORATORIO INTEGER;\r\nbegin\r\n   for\r\n      select registro\r\n      from prospecto_registros\r\n      where prospecto = :productoVademecum\r\n      into :registro\r\n   do begin\r\n      nombre = null;\r\n      presentacion = null;\r\n      select nombre, presentacion, estado, laboratorio, precio, vigencia\r\n      from articulos\r\n      where id = :registro\r\n      into :nombre, presentacion, :estado, :codigoLaboratorio, :precio, :fechavigencia;\r\n      \r\n      if (estado = 'A') then begin\r\n         laboratorio = null;\r\n         select descripcion\r\n         from laboratorios\r\n         where id = :codigoLaboratorio\r\n         into : laboratorio;\r\n         \r\n         suspend;\r\n      end         \r\n   end\r\nend"
+    - name: IF_GETDISCONTINUEDPRESENTATIONS
+      parameters:
+        - name: FECHAALTA
+          type: TIMESTAMP
+          direction: OUT
+        - name: FECHADESDE
+          type: TIMESTAMP
+          direction: IN
+        - name: PRD_ID
+          type: INTEGER
+          direction: OUT
+        - name: FECHAHASTA
+          type: TIMESTAMP
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_ESTADO
+          type: CHAR
+          direction: OUT
+        - name: PRD_PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "declare variable REGISTRO integer;\r\ndeclare variable ESTADO char(1);\r\nbegin\r\n   for select fecha, registro\r\n      from log_alfabeta\r\n      where operacion = 'B' and (fecha >= :fechadesde) and (fecha < :fechahasta) and (fecha<>'14.08.2023')\r\n      and tabla = 'Artimaes'\r\n      into :fechaalta, :registro\r\n   do begin\r\n      prd_id = null;\r\n      prd_nombre = null;\r\n      prd_presentacion = null;\r\n      prd_laboratorio = null;\r\n      lab_descripcion = null;\r\n      estado = null;\r\n      select estado\r\n      from articulos\r\n      where id = :registro\r\n      into :estado;\r\n      if (estado = 'I') then begin\r\n         select id, nombre, presentacion, laboratorio, estado\r\n         from articulos\r\n         where id = :registro\r\n         order by nombre\r\n         into :prd_id, :prd_nombre, :prd_presentacion, :prd_laboratorio, :prd_estado;\r\n         select descripcion\r\n         from laboratorios\r\n         where id = :prd_laboratorio\r\n         into :lab_descripcion;\r\n         if (lab_descripcion is null) then\r\n            lab_descripcion = 'SIN INFORMACION';\r\n         suspend;\r\n      end\r\n   end\r\nend"
+    - name: IF_GETFIVE
+      parameters:
+        - name: LIMITE
+          type: INTEGER
+          direction: IN
+        - name: FECHA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRD_ID
+          type: INTEGER
+          direction: OUT
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: OPERACION
+          type: CHAR
+          direction: OUT
+      definition: "\r\nbegin\r\n   operacion = 'A';\r\n   for \r\n      select fecha, prd_id, prd_nombre, prd_presentacion, prd_laboratorio,\r\n      lab_descripcion\r\n      from novedadesWeb\r\n      order by prd_nombre\r\n      into :fecha, :prd_id, :prd_nombre, :prd_presentacion, :prd_laboratorio,\r\n      :lab_descripcion\r\n   do \r\n      suspend;\r\nend"
+    - name: IF_GETNEWPRESENTATIONS
+      parameters:
+        - name: FECHADESDE
+          type: TIMESTAMP
+          direction: IN
+        - name: FECHAALTA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRD_ID
+          type: INTEGER
+          direction: OUT
+        - name: FECHAHASTA
+          type: TIMESTAMP
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "declare variable REGISTRO integer;\r\nbegin\r\n   for select vigencia, registro\r\n      from log_alfabeta\r\n      where ((operacion = 'A') or (operacion = 'R')) and (vigencia >= :fechadesde) and (vigencia < :fechahasta)\r\n      and tabla = 'Artimaes'\r\n      into :fechaalta, :registro\r\n   do begin\r\n      prd_id = null;\r\n      prd_nombre = null;\r\n      prd_presentacion = null;\r\n      prd_laboratorio = null;\r\n      lab_descripcion = null;\r\n      select id, nombre, presentacion, laboratorio\r\n      from articulos\r\n      where id = :registro\r\n      order by nombre\r\n      into :prd_id, :prd_nombre, :prd_presentacion, :prd_laboratorio;\r\n      select descripcion\r\n      from laboratorios\r\n      where id = :prd_laboratorio\r\n      into :lab_descripcion;\r\n      suspend;\r\n   end\r\nend"
+    - name: IF_GETPRESENTATION
+      parameters:
+        - name: ID
+          type: INTEGER
+          direction: IN
+        - name: ESTADO
+          type: VARCHAR
+          direction: OUT
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: TAMANIO
+          type: INTEGER
+          direction: OUT
+        - name: LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: DESCLABORATORIO
+          type: VARCHAR
+          direction: OUT
+      definition: "\r\n begin\r\n  select nombre, presentacion, estado, laboratorio, tamanio, precio\r\n  from articulos\r\n  where id = :id\r\n  into :nombre, :presentacion, :estado, :laboratorio, :tamanio, :precio;\r\n  desclaboratorio = null;\r\n  select descripcion\r\n  from laboratorios\r\n  where id = :laboratorio\r\n  into :desclaboratorio;\r\n  suspend;\r\nend"
+    - name: IF_GETPRODUCT
+      parameters:
+        - name: PRD_ID
+          type: INTEGER
+          direction: OUT
+        - name: NOMBRE
+          type: VARCHAR
+          direction: IN
+        - name: LABORATORIO
+          type: INTEGER
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_MONODROGA
+          type: INTEGER
+          direction: OUT
+        - name: MD_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_MONOACCION
+          type: INTEGER
+          direction: OUT
+        - name: MA_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: PRD_VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRD_ESTADO
+          type: VARCHAR
+          direction: OUT
+        - name: DESCUENTO
+          type: CHAR
+          direction: OUT
+        - name: IMPORTADO
+          type: CHAR
+          direction: OUT
+        - name: TIPO_DE_VENTA
+          type: INTEGER
+          direction: OUT
+        - name: CONTROL_SALUD_PUBLICA
+          type: INTEGER
+          direction: OUT
+        - name: GRAVAMEN
+          type: CHAR
+          direction: OUT
+        - name: PRECIOPAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "begin\r\n   lab_descripcion = \"\";\r\n   select descripcion\r\n   from laboratorios\r\n   where id = :laboratorio\r\n   into :lab_descripcion;\r\n   prd_laboratorio = laboratorio;\r\n   for select id, nombre, presentacion, monodroga, monoaccion, estado,\r\n                 descuento, importado,  tipodeventa, controlsaludpublica, \r\n                 precio, vigencia, gravamen, precioPami\r\n      from articulos\r\n      where nombre = :nombre and laboratorio = :laboratorio and estado = 'A'\r\n      order by presentacion\r\n      into :prd_id, :prd_nombre, :prd_presentacion, :prd_monodroga, :prd_monoaccion, \r\n           :prd_estado, :descuento, :importado, :tipo_de_venta, :control_salud_publica, \r\n           :prd_precio, :prd_vigencia, :gravamen, :precioPami\r\n   do begin\r\n      if (prd_vigencia > 'NOW') then begin\r\n         select precioAnterior, vigenciaAnterior\r\n         from articulos\r\n         where id = :prd_id\r\n         into :prd_precio, :prd_vigencia;\r\n      end\r\n\r\n      if (prd_monodroga is not null) then begin\r\n         md_descripcion = \"\";\r\n         select descripcion\r\n         from monodrogas\r\n         where id = :prd_monodroga\r\n         into :md_descripcion;\r\n         if (md_descripcion = 'Pendiente') then\r\n            md_descripcion = '';\r\n      end\r\n      if (prd_monoaccion is not null) then begin\r\n         ma_descripcion = \"\";\r\n         select descripcion\r\n         from monoacciones\r\n         where id = :prd_monoaccion\r\n         into :ma_descripcion;\r\n      end\r\n\r\n      if ((prd_vigencia <= 'NOW') and (prd_precio >0)) then\r\n         suspend;\r\n   end\r\nend"
+    - name: IF_GETPRODUCTNAMESBYLAB
+      parameters:
+        - name: LABORATORIO
+          type: INTEGER
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: LAB_ID
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "\r\n begin\r\n   lab_descripcion = \"\";\r\n   select descripcion\r\n   from laboratorios\r\n   where id = :laboratorio\r\n   into :lab_descripcion;\r\n   lab_id = laboratorio;\r\n   for select distinct nombre\r\n      from marcas\r\n      where laboratorio = :laboratorio and presentaciones > 0\r\n      into :prd_nombre\r\n   do begin\r\n      suspend;\r\n   end\r\nend"
+    - name: IF_GETPRODUCTNAMESBYMONOACTION
+      parameters:
+        - name: MONOACCION
+          type: INTEGER
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: LAB_ID
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "\r\n begin\r\n   for select distinct nombre, laboratorio\r\n      from articulos\r\n      where monoaccion = :monoaccion\r\n      into :prd_nombre, :lab_id\r\n   do begin\r\n      lab_descripcion = \"\";\r\n      select descripcion\r\n      from laboratorios\r\n      where id = :lab_id\r\n      into :lab_descripcion;\r\n      suspend;\r\n   end\r\nend"
+    - name: IF_GETPRODUCTNAMESBYMONODRUG
+      parameters:
+        - name: MONODROGA
+          type: INTEGER
+          direction: IN
+        - name: MD_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: LAB_ID
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "\r\n begin\r\n   select descripcion\r\n   from monodrogas\r\n   where id = :monodroga\r\n   into :md_descripcion;\r\n   for select distinct nombre, laboratorio\r\n      from articulos\r\n      where monodroga = :monodroga and estado = 'A'\r\n      into :prd_nombre, :lab_id\r\n   do begin\r\n      lab_descripcion = \"\";\r\n      select descripcion\r\n      from laboratorios\r\n      where id = :lab_id\r\n      into :lab_descripcion;\r\n      suspend;\r\n   end\r\nend"
+    - name: IF_GETPRODUCTNAMESBYPATTERN
+      parameters:
+        - name: PATTERN
+          type: VARCHAR
+          direction: IN
+        - name: PRD_NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRD_LABORATORIO
+          type: INTEGER
+          direction: OUT
+        - name: LAB_DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+      definition: "begin\r\n   for select distinct nombre, laboratorio\r\n      from marcas\r\n      where nombre containing :pattern\r\n      order by nombre\r\n      into :prd_nombre, :prd_laboratorio\r\n   do begin\r\n      lab_descripcion = \"\";\r\n      select descripcion\r\n      from laboratorios\r\n      where id = :prd_laboratorio\r\n      into :lab_descripcion;\r\n      suspend;\r\n   end\r\nend"
+    - name: MDS_GETNOVEDADES
+      parameters:
+        - name: ULTIMANOVEDADCLIENTE
+          type: INTEGER
+          direction: IN
+        - name: ORDEN
+          type: INTEGER
+          direction: OUT
+        - name: FECHA
+          type: TIMESTAMP
+          direction: OUT
+        - name: OPERACION
+          type: VARCHAR
+          direction: OUT
+        - name: TABLA
+          type: VARCHAR
+          direction: OUT
+        - name: ID
+          type: INTEGER
+          direction: OUT
+        - name: DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: REGISTRO
+          type: INTEGER
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "declare variable FECHAULTIMANOVEDADCLIENTE date;\r\ndeclare variable ULTIMOLOGVIGENTE integer;\r\nbegin\r\n  if (ultimanovedadcliente = 0) then\r\n    select min(fecha)\r\n    from log_alfabeta where (excluir <> 'W')\r\n    into :fechaultimanovedadcliente;\r\n  else begin\r\n    select max(orden) from log_alfabeta\r\n    where operacion in ('A', 'M', 'P', 'B', 'R') and (vigencia <= 'today') and (excluir <> 'W')\r\n    into :ultimoLogVigente;\r\n\r\n    select fecha\r\n    from log_alfabeta\r\n    where orden = :ultimanovedadcliente\r\n    into :fechaultimanovedadcliente;\r\n    if (fechaUltimaNovedadCliente is null) then\r\n        fechaUltimaNovedadCliente = cast('TODAY' as date) - 30;\r\n\r\n     if ((ultimaNovedadCliente = ultimoLogVigente) and (fechaUltimaNovedadCliente = CAST('TODAY' as date))) then\r\n      exit;\r\n\r\n\r\n  end\r\n\r\n  for\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where (orden > :ultimanovedadcliente) and (operacion not in ('A', 'M', 'P','B','R')) and (excluir <> 'W')\r\n    union\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where (orden > :ultimanovedadcliente) and (operacion in ('A', 'M', 'P','B','R')) and (vigencia <= 'today') and (excluir <> 'W')\r\n    union\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where (orden <= :ultimanovedadcliente) and (operacion in ('A', 'M', 'P','B','R'))\r\n          and (vigencia >= :fechaultimanovedadcliente) and (vigencia <= 'today') and (excluir <> 'W')\r\n    into :orden, :fecha, :operacion, :tabla, :id, :descripcion, :registro, :vigencia, :precio\r\n  do\r\n    suspend;\r\nend"
+    - name: MDS_GETPRODUCTO
+      parameters:
+        - name: ID
+          type: INTEGER
+          direction: IN
+        - name: ATRIBUTO
+          type: VARCHAR
+          direction: OUT
+        - name: CLASE
+          type: VARCHAR
+          direction: OUT
+        - name: VALORINT
+          type: INTEGER
+          direction: OUT
+        - name: VALORDATE
+          type: TIMESTAMP
+          direction: OUT
+        - name: VALORCHAR
+          type: VARCHAR
+          direction: OUT
+        - name: VALORDOUBLE
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "declare variable ESTADO varchar(1);\r\ndeclare variable NOMBRE varchar(62);\r\ndeclare variable PRESENTACION varchar(62);\r\ndeclare variable IMPORTADO varchar(1);\r\ndeclare variable HELADERA varchar(1);\r\ndeclare variable TROQUEL varchar(62);\r\ndeclare variable CODIGODEBARRAS varchar(62);\r\ndeclare variable TASAIVA double precision;\r\ndeclare variable LABORATORIO integer;\r\ndeclare variable TIPODEVENTA integer;\r\ndeclare variable CONTROLSALUDPUBLICA integer;\r\ndeclare variable TAMANIO integer;\r\ndeclare variable FORMA integer;\r\ndeclare variable VIA integer;\r\ndeclare variable MONODROGA integer;\r\ndeclare variable MONOACCION integer;\r\ndeclare variable PRECIO double precision;\r\ndeclare variable VIGENCIA date;\r\ndeclare variable DROGA integer;\r\ndeclare variable UNIDAD integer;\r\ndeclare variable UNIDADES double precision;\r\ndeclare variable UNIDADPOTENCIA integer;\r\ndeclare variable POTENCIA varchar(62);\r\ndeclare variable GTIN varchar(14);\r\ndeclare variable GRAVAMEN varchar(1);\r\ndeclare variable CELIACOS varchar(1);\r\ndeclare variable PRECIOANTERIOR double precision;\r\ndeclare variable VIGENCIAANTERIOR date;\r\nbegin\r\n  estado = null; nombre = null; presentacion = null; importado = null; heladera = null; troquel = null;\r\n  codigodebarras = null; tasaiva = null; laboratorio = null; tipodeventa = null; controlsaludpublica = null;\r\n  tamanio = null; forma = null; via = null; monodroga = null; monoaccion = null; unidadpotencia = null; potencia = null;\r\n  unidad = null; unidades = null; gtin = null; gravamen = null; celiacos = null;\r\n  select estado, nombre, presentacion, importado, heladera, troquel, codigodebarras, tasaiva,\r\n  laboratorio, tipodeventa, controlsaludpublica, tamanio, forma, via, monodroga, monoaccion, precio, vigencia,\r\n  unidadPotencia, trim(potencia), unidadUnidades, unidades, gtin, gravamen, celiacos, precioAnterior, vigenciaAnterior\r\n  from articulos\r\n  where id = :id\r\n  into :estado, :nombre, :presentacion, :importado, :heladera, :troquel, :codigodebarras, :tasaiva,\r\n  :laboratorio, :tipodeventa, :controlsaludpublica, :tamanio, :forma, :via, :monodroga, :monoaccion, :precio, :vigencia,\r\n  :unidadPotencia, :potencia, :unidad, :unidades, :gtin, :gravamen, :celiacos, :precioAnterior, :vigenciaAnterior;\r\n\r\n  valorint = null; valordate = null; valordouble = null;\r\n\r\n  atributo = 'ESTADO';\r\n  clase = 'NORMAL';\r\n  valorchar = estado;\r\n  suspend;\r\n\r\n  atributo = 'NOMBRE';\r\n  clase = 'NORMAL';\r\n  valorchar = nombre;\r\n  suspend;\r\n\r\n  atributo = 'PRESENTACION';\r\n  clase = 'NORMAL';\r\n  valorchar = presentacion;\r\n  suspend;\r\n\r\n  atributo = 'IMPORTADO';\r\n  clase = 'NORMAL';\r\n  valorchar = importado;\r\n  suspend;\r\n\r\n  atributo = 'HELADERA';\r\n  clase = 'NORMAL';\r\n  valorchar = heladera;\r\n  suspend;\r\n\r\n  atributo = 'TROQUEL';\r\n  clase = 'NORMAL';\r\n  valorchar = troquel;\r\n  suspend;\r\n\r\n  atributo = 'CODIGODEBARRAS';\r\n  clase = 'NORMAL';\r\n  valorchar = codigodebarras;\r\n  suspend;\r\n\r\n  valorchar = null;\r\n\r\n  atributo = 'TASAIVA';\r\n  clase = 'NORMAL';\r\n  valordouble = tasaiva;\r\n  suspend;\r\n\r\n  valordouble = null;\r\n  atributo = 'LABORATORIO';\r\n  clase = 'NORMAL';\r\n  valorint = laboratorio;\r\n  suspend;\r\n\r\n  atributo = 'TIPODEVENTA';\r\n  clase = 'NORMAL';\r\n  valorint = tipodeventa;\r\n  suspend;\r\n\r\n  atributo = 'CONTROLSALUDPUBLICA';\r\n  clase = 'NORMAL';\r\n  valorint = controlsaludpublica;\r\n  suspend;\r\n\r\n  atributo = 'TAMANIO';\r\n  clase = 'NORMAL';\r\n  valorint = tamanio;\r\n  suspend;\r\n\r\n  atributo = 'FORMA';\r\n  clase = 'NORMAL';\r\n  valorint = forma;\r\n  suspend;\r\n\r\n  atributo = 'VIA';\r\n  clase = 'NORMAL';\r\n  valorint = via;\r\n  suspend;\r\n\r\n  atributo = 'MONODROGA';\r\n  clase = 'NORMAL';\r\n  valorint = monodroga;\r\n  valorchar = null;\r\n  select descripcion from monodrogas where id = :monodroga into :valorchar;\r\n  suspend;\r\n\r\n  atributo = 'MONOACCION';\r\n  clase = 'NORMAL';\r\n  valorint = monoaccion;\r\n  valorchar = null;\r\n  select descripcion from monoacciones where id = :monoaccion into :valorchar;\r\n  suspend;\r\n\r\n  valorchar = null;\r\n  atributo = 'UNIDADES';\r\n  clase = 'NORMAL';\r\n  valorint = unidad;\r\n  valordouble = unidades;\r\n  suspend;\r\n\r\n  valorint = null;\r\n  atributo = 'PRECIO';\r\n  clase = 'NORMAL';\r\n  valordouble = precio;\r\n  valordate = vigencia;\r\n  if (valordate > 'NOW') then begin\r\n     valordouble = precioAnterior;\r\n     valordate = vigenciaAnterior;\r\n  end\r\n  suspend;\r\n\r\n  valordate = null;\r\n  valordouble = null;\r\n  atributo = 'POTENCIA';\r\n  clase = 'NORMAL';\r\n  valorint = unidadpotencia;\r\n  valorchar = potencia;\r\n  suspend;\r\n\r\n  valorint = null; valordouble = null;\r\n  atributo = 'GTIN';\r\n  clase = 'NORMAL';\r\n  valorchar = gtin;\r\n  suspend;\r\n\r\n  atributo = 'GRAVAMEN';\r\n  clase = 'NORMAL';\r\n  valorchar = gravamen;\r\n  suspend;\r\n\r\n  atributo = 'CELIACOS';\r\n  clase = 'NORMAL';\r\n  valorchar = celiacos;\r\n  suspend;\r\n\r\n  atributo = 'DROGA';\r\n  clase = 'FORANEO';\r\n  for\r\n    select droga from articulo_drogas where articulo = :id into :droga\r\n  do begin\r\n    valorint = droga;\r\n    valorchar = null;\r\n    select descripcion from drogas where id = :droga into :valorchar;\r\n    suspend;\r\n  end\r\n\r\n  atributo = 'CODIGODEBARRAS2';\r\n  clase = 'NORMAL';\r\n  valorint = null;\r\n  valorchar = null;\r\n  for\r\n    select first 1 codigo from barrasadicionales where actualizador = 1 and id = :id into :valorChar\r\n  do\r\n    suspend;\r\nend"
+    - name: VER_VACUNAS
+      parameters:
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: DESCLABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: DESCACCION
+          type: VARCHAR
+          direction: OUT
+      definition: "\r\ndeclare variable laboratorio integer;\r\ndeclare variable monoAccion integer;\r\nbegin\r\n   for\r\n      select nombre, presentacion, laboratorio, monoAccion\r\n      from articulos\r\n      where estado = 'A' and vacunas = 'S'\r\n      into :nombre, :presentacion, :laboratorio, :monoAccion\r\n   do begin\r\n      desclaboratorio = null;\r\n      select descripcion from laboratorios where id = :laboratorio into :desclaboratorio;\r\n      descAccion = null;\r\n      select descripcion from monoacciones where id = :monoAccion into :descAccion;\r\n      suspend;\r\n   end\r\nend"
+    - name: WS_GETNOVEDADES
+      parameters:
+        - name: ULTIMANOVEDADCLIENTE
+          type: INTEGER
+          direction: IN
+        - name: ORDEN
+          type: INTEGER
+          direction: OUT
+        - name: FECHA
+          type: TIMESTAMP
+          direction: OUT
+        - name: OPERACION
+          type: VARCHAR
+          direction: OUT
+        - name: TABLA
+          type: VARCHAR
+          direction: OUT
+        - name: ID
+          type: INTEGER
+          direction: OUT
+        - name: DESCRIPCION
+          type: VARCHAR
+          direction: OUT
+        - name: REGISTRO
+          type: INTEGER
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "declare variable FECHAULTIMANOVEDADCLIENTE date;\r\ndeclare variable ULTIMOLOGVIGENTE integer;\r\ndeclare variable ULTIMAVIGENCIA date;\r\ndeclare variable ULTIMOORDENDEVUELTO integer;\r\ndeclare variable UNAVIGENCIA date;\r\ndeclare variable HORA integer;\r\ndeclare variable NEWORDEN integer;\r\ndeclare variable DIA smallint;\r\ndeclare variable DIASSUMAR smallint;\r\nbegin\r\n   select extract(hour from current_timeSTAMP), extract(Weekday from Current_date) from rdb$database into :hora, :dia;\r\n   unaVigencia = 'TODAY';\r\n   if (hora>15) then begin\r\n      if (not (exists(Select sumar from feriados where fecha=Current_date))) then begin\r\n         if (dia=5) then  /* si es viernes incluyo lo del lunes */\r\n            unavigencia = unaVigencia + 3;\r\n         else\r\n            unavigencia = unaVigencia + 1;\r\n      end else begin\r\n         select coalesce(sumar,0) from feriados where fecha=Current_date into :diasSumar;\r\n         unaVigencia = unavigencia + :diasSumar;\r\n      end\r\n   end\r\n\r\n   select max(orden) from log_alfabeta where operacion in ('A', 'M', 'P', 'B', 'R') and (vigencia <= :unaVigencia) and (tabla <> 'Alfaacci') into :ultimoLogVigente;\r\n\r\n   select max(vigencia) from log_alfabeta where operacion in ('A', 'M', 'P', 'B', 'R') and (vigencia <= :unaVigencia) and (tabla <> 'Alfaacci') into :ultimaVigencia;\r\n\r\n   select fecha from log_alfabeta where orden = :ultimanovedadcliente into :fechaultimanovedadcliente;\r\n   if (fechaUltimaNovedadCliente is null) then begin     /* no existe el log */\r\n      /* me fijo que no sea mayor que el ultimo, en ese caso devuelvo error */\r\n      select max(orden) from log_alfabeta into :newOrden;\r\n      if (ultimaNovedadCliente>newOrden) then\r\n         exception ORDEN_NOENCONTRADO;\r\n      /* cuando es una correccion puede ser que no este ese log en la posterior base subida..*/\r\n      select max(orden) from log_alfabeta where orden < :ultimanovedadcliente into :newOrden;\r\n      if (newOrden is null) then\r\n         exception ORDEN_NOENCONTRADO;\r\n      ultimanovedadcliente = newOrden;\r\n      select fecha from log_alfabeta where orden = :ultimanovedadcliente into :fechaultimanovedadcliente;\r\n   end\r\n\r\n   if ((ultimaNovedadCliente = ultimoLogVigente) and (fechaUltimaNovedadCliente = ultimaVigencia)) then\r\n      exit;\r\n\r\n  for\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where orden > :ultimanovedadcliente and operacion not in ('A', 'M', 'P', 'B', 'R') and (tabla <> 'Alfaacci')\r\n    union\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where orden > :ultimanovedadcliente and operacion in ('A', 'M', 'P', 'B', 'R') and vigencia <= :unaVigencia and registro < 100000 and registro <> 2\r\n    union\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta\r\n    where orden <= :ultimanovedadcliente and operacion in ('A', 'M', 'P', 'B', 'R')\r\n          and vigencia >= :fechaultimanovedadcliente and vigencia <= :unaVigencia and registro < 100000 and registro <> 2\r\n    order by 1\r\n    into :orden, :fecha, :operacion, :tabla, :id, :descripcion, :registro, :vigencia, :precio\r\n  do begin\r\n    if (operacion <> 'P') then begin  /*  OJO que pudo haber un cambio de precio posterior a la modificacion,  hay que ver si se devuelve o no..*/\r\n       select first 1 precio, vigencia from log_alfabeta\r\n       where registro=:registro and vigencia>=:vigencia and vigencia <= :unaVigencia\r\n       order by orden desc\r\n       into :precio, :vigencia;\r\n    end\r\n\r\n    ultimoOrdenDevuelto = :orden;\r\n    suspend;\r\n  end\r\n\r\n   /* devuelvo como ultimo log el mismo que mando el cliente para no entrar en un loop */\r\n  if (ultimoOrdenDevuelto < ultimaNovedadCliente) then begin\r\n    select orden, fecha, operacion, tabla, id, descripcion, registro, vigencia, precio\r\n    from log_alfabeta where orden = :ultimanovedadcliente\r\n    into :orden, :fecha, :operacion, :tabla, :id, :descripcion, :registro, :vigencia, :precio;\r\n\r\n    suspend;\r\n  end\r\n\r\nend"
+    - name: WS_PRODUCTOS
+      parameters:
+        - name: IDPRODUCTO
+          type: INTEGER
+          direction: OUT
+        - name: FILTRO
+          type: VARCHAR
+          direction: IN
+        - name: TIPOFILTRO
+          type: CHAR
+          direction: IN
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: IDFILTRO
+          type: INTEGER
+          direction: IN
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: VENTALIBRE
+          type: CHAR
+          direction: OUT
+        - name: SALUDPUBLICA
+          type: VARCHAR
+          direction: OUT
+        - name: ACCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PROSPECTO
+          type: INTEGER
+          direction: OUT
+        - name: PAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: IOMA
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: SIFAR
+          type: CHAR
+          direction: OUT
+        - name: MENSAJEPAMI
+          type: VARCHAR
+          direction: OUT
+        - name: MENSAJEIOMA
+          type: VARCHAR
+          direction: OUT
+        - name: POTENCIA
+          type: VARCHAR
+          direction: OUT
+        - name: GRAVAMEN
+          type: CHAR
+          direction: OUT
+        - name: PRECIOPAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "DECLARE VARIABLE IDLABORATORIO INTEGER;\r\nDECLARE VARIABLE IDTIPODEVENTA INTEGER;\r\nDECLARE VARIABLE IDCONTROLSALUDPUBLICA INTEGER;\r\nDECLARE VARIABLE IDACCION INTEGER;\r\nDECLARE VARIABLE PRECIOANTERIOR DOUBLE PRECISION;\r\nDECLARE VARIABLE VIGENCIAANTERIOR DATE;\r\nbegin\r\n  if (tipoFiltro = 'N') then begin\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (nombre starting with :filtro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\n  if (tipoFiltro = 'M') then begin\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (nombre containing :filtro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\n\r\n  if (tipoFiltro = 'L') then begin\r\n    select descripcion from laboratorios where id = :idFiltro into :laboratorio;\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (laboratorio = :idFiltro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n       if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\n\r\n  if (tipoFiltro = 'B') then begin\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (codigoDebarras = :filtro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\n  if (tipoFiltro = 'T') then begin\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (troquel = :filtro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\n  if (tipoFiltro = 'D') then\r\n    for\r\n      select articulo from articulo_drogas where droga = :idFiltro into :idProducto\r\n    do\r\n      for\r\n        select nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n        from articulos\r\n        where (id = :idProducto) and (estado = 'A')\r\n        into :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n      do begin\r\n        if (vigencia > 'NOW') then begin\r\n          select precioAnterior, vigenciaAnterior\r\n          from articulos\r\n          where id = :idProducto\r\n          into :precioAnterior, :vigenciaAnterior;\r\n          if (vigenciaAnterior > 'NOW') then\r\n            precio = 0;\r\n          else begin\r\n            precio = precioAnterior;\r\n            vigencia = :vigenciaAnterior;\r\n          end\r\n        end\r\n        select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n        if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n          ventaLibre = 'S';\r\n        else\r\n          ventaLibre = 'N';\r\n        if (idControlSaludPublica = 0) then\r\n          saludPublica = '';\r\n        else\r\n          select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n        select descripcion from monoAcciones where id = :idAccion into :accion;\r\n        prospecto = 0;\r\n        select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n        if (pami=100) then\r\n            mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n        else\r\n            mensajePami = '';\r\n        if (mensajeIoma = 'S') then\r\n            mensajeIoma = 'USO NORMATIZADO';\r\n        else\r\n            mensajeIoma = '';\r\n\r\n        if (precio > 0) then\r\n          suspend;\r\n      end\r\n  if (tipoFiltro = 'A') then begin\r\n    for\r\n      select id, nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where (monoaccion = :idFiltro) and (estado = 'A')\r\n      into :idProducto, :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma\r\n    do begin\r\n      if (vigencia > 'NOW') then begin\r\n        select precioAnterior, vigenciaAnterior\r\n        from articulos\r\n        where id = :idProducto\r\n        into :precioAnterior, :vigenciaAnterior;\r\n        if (vigenciaAnterior > 'NOW') then\r\n          precio = 0;\r\n        else begin\r\n          precio = precioAnterior;\r\n          vigencia = :vigenciaAnterior;\r\n        end\r\n      end\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      if (precio > 0) then\r\n        suspend;\r\n    end\r\n  end\r\nend\r\n"
+    - name: WS_VERSUPLEMENTOS
+      parameters:
+        - name: IDPRODUCTO
+          type: INTEGER
+          direction: OUT
+        - name: ID
+          type: VARCHAR
+          direction: IN
+        - name: NOMBRE
+          type: VARCHAR
+          direction: OUT
+        - name: PRESENTACION
+          type: VARCHAR
+          direction: OUT
+        - name: LABORATORIO
+          type: VARCHAR
+          direction: OUT
+        - name: VENTALIBRE
+          type: CHAR
+          direction: OUT
+        - name: SALUDPUBLICA
+          type: VARCHAR
+          direction: OUT
+        - name: ACCION
+          type: VARCHAR
+          direction: OUT
+        - name: PRECIO
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: VIGENCIA
+          type: TIMESTAMP
+          direction: OUT
+        - name: PROSPECTO
+          type: INTEGER
+          direction: OUT
+        - name: PAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: IOMA
+          type: DOUBLE PRECISION
+          direction: OUT
+        - name: SIFAR
+          type: CHAR
+          direction: OUT
+        - name: MENSAJEPAMI
+          type: VARCHAR
+          direction: OUT
+        - name: MENSAJEIOMA
+          type: VARCHAR
+          direction: OUT
+        - name: POTENCIA
+          type: VARCHAR
+          direction: OUT
+        - name: GRAVAMEN
+          type: CHAR
+          direction: OUT
+        - name: PRECIOPAMI
+          type: DOUBLE PRECISION
+          direction: OUT
+      definition: "DECLARE VARIABLE IDLABORATORIO INTEGER;\r\nDECLARE VARIABLE IDTIPODEVENTA INTEGER;\r\nDECLARE VARIABLE IDCONTROLSALUDPUBLICA INTEGER;\r\nDECLARE VARIABLE IDACCION INTEGER;\r\nbegin\r\n   for\r\n      select producto\r\n      from suplementos\r\n      where id = :id\r\n      into :idProducto\r\n   do begin\r\n      select nombre, presentacion, laboratorio, tipoDeVenta, controlSaludPublica, monoAccion, precio, vigencia, potencia, gravamen, coalesce(precioPami, 0), coalesce(sifar, ''), coalesce(porcentajePami, 0), coalesce(mfIoma, 0), coalesce(iomaNormatizado, '')\r\n      from articulos\r\n      where id = :idProducto\r\n      into :nombre, :presentacion, :idLaboratorio, :idTipoDeVenta, :idControlSaludPublica, :idAccion, :precio, :vigencia, :potencia, :gravamen, :precioPami, :sifar, :pami, :ioma, :mensajeIoma;\r\n\r\n      select descripcion from laboratorios where id = :idLaboratorio into :laboratorio;\r\n      if ((idTipoDeVenta = 1) or (idTipoDeVenta = 9)) then\r\n        ventaLibre = 'S';\r\n      else\r\n        ventaLibre = 'N';\r\n      if (idControlSaludPublica = 0) then\r\n        saludPublica = '';\r\n      else\r\n        select descripcion from controlesSaludPublica where id = :idControlSaludPublica into :saludPublica;\r\n      select descripcion from monoAcciones where id = :idAccion into :accion;\r\n      prospecto = 0;\r\n      select first 1 prospecto from prospecto_registros where registro = :idProducto into :prospecto;\r\n\r\n      if (pami=100) then\r\n        mensajePami = 'EMPADRONAMIENTO PREVIO';\r\n      else\r\n        mensajePami = '';\r\n      if (mensajeIoma = 'S') then\r\n        mensajeIoma = 'USO NORMATIZADO';\r\n      else\r\n        mensajeIoma = '';\r\n\r\n      suspend;\r\n   end\r\nend\r\n"
+functions: []
+indexes:
+    - name: NEW_ATC_IDX1
+      table_name: NEW_ATC
+      columns:
+        - NIVEL
+      unique: false
+      type: BTREE
+    - name: PK_ATC
+      table_name: ATC
+      columns:
+        - REGISTRO
+        - ATC
+      unique: true
+      type: BTREE
+    - name: ARTICULOS_IDX1
+      table_name: ARTICULOS
+      columns:
+        - TROQUEL
+      unique: false
+      type: BTREE
+    - name: I_ARTICULOS_DROGA
+      table_name: ARTICULOS
+      columns:
+        - MONODROGA
+      unique: false
+      type: BTREE
+    - name: PK_NEW_ATC
+      table_name: NEW_ATC
+      columns:
+        - CODIGO
+      unique: true
+      type: BTREE
+    - name: PK_NEW_ATC_NIVELES
+      table_name: NEW_ATC_NIVELES
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: I_ARTICULOS_NOMBRE
+      table_name: ARTICULOS
+      columns:
+        - NOMBRE
+      unique: false
+      type: BTREE
+    - name: I_OPERACIONLOGALFABETA
+      table_name: LOG_ALFABETA
+      columns:
+        - OPERACION
+      unique: false
+      type: BTREE
+    - name: PK_BARRASADICIONALES
+      table_name: BARRASADICIONALES
+      columns:
+        - ACTUALIZADOR
+        - ID
+        - CODIGO
+      unique: true
+      type: BTREE
+    - name: PK_MARCAS
+      table_name: MARCAS
+      columns:
+        - NOMBRE
+        - LABORATORIO
+      unique: true
+      type: BTREE
+    - name: PK_TROQUELADICIONALES
+      table_name: TROQUELADICIONALES
+      columns:
+        - ACTUALIZADOR
+        - ID
+        - TROQUEL
+      unique: true
+      type: BTREE
+    - name: ARTICULOS_IDX2
+      table_name: ARTICULOS
+      columns:
+        - CODIGODEBARRAS
+      unique: false
+      type: BTREE
+    - name: FK_PROSPECTO_REGISTROS
+      table_name: PROSPECTO_REGISTROS
+      columns:
+        - PROSPECTO
+        - REGISTRO
+      unique: true
+      type: BTREE
+    - name: I_ARTICULOS_ACCION
+      table_name: ARTICULOS
+      columns:
+        - MONOACCION
+      unique: false
+      type: BTREE
+    - name: LOG_ALFABETA_IDX1
+      table_name: LOG_ALFABETA
+      columns:
+        - FECHA
+      unique: false
+      type: BTREE
+    - name: LOG_ALFABETA_IDX2
+      table_name: LOG_ALFABETA
+      columns:
+        - REGISTRO
+      unique: false
+      type: BTREE
+    - name: PROSPECTO_REGISTROS_IDX1
+      table_name: PROSPECTO_REGISTROS
+      columns:
+        - REGISTRO
+      unique: false
+      type: BTREE
+    - name: I_ARTICULOS_ESTADO
+      table_name: ARTICULOS
+      columns:
+        - ESTADO
+      unique: false
+      type: BTREE
+    - name: I_ARTICULOS_LABORATORIO
+      table_name: ARTICULOS
+      columns:
+        - LABORATORIO
+      unique: false
+      type: BTREE
+    - name: I_MARCAS_NOMBRES
+      table_name: MARCAS
+      columns:
+        - NOMBRE
+      unique: false
+      type: BTREE
+    - name: I_VIGENCIALOGALFABETA
+      table_name: LOG_ALFABETA
+      columns:
+        - VIGENCIA
+      unique: false
+      type: BTREE
+engine_specific:
+    domains:
+        - check_constraint: check (value in ('S', 'N'))
+          length: 1
+          name: DOM_BOOLEAN
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_CODIGODEBARRAS
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_CONTROLSALUDPUBLICA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_CP
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_DOMICILIO
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_DROGA
+          scale: 0
+          type: VARCHAR
+        - check_constraint: check (value in ('A', 'I'))
+          length: 1
+          name: DOM_ESTADO
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_FORMA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_LABORATORIO
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_LABORATORIO_ES
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_LOCALIDAD
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MAIL
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MARCA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MARCA_1
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MONOACCION
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MONOACCION_1
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MONODROGA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_MONODROGA_1
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_NOMBRE
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_NOMBRE_1
+          scale: 0
+          type: VARCHAR
+        - check_constraint: check (value in ('A', 'B', 'C', 'D', 'M', 'P', 'R', 'T'))
+          length: 1
+          name: DOM_OPERACIONLOG
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_POTENCIA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_PRESENTACION
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_PRESENTACION_1
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_PROVINCIA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_RAZONSOCIAL
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_TABLA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_TAMANIO
+          scale: 0
+          type: VARCHAR
+        - length: 8
+          name: DOM_TASAIVA
+          scale: 0
+          type: DOUBLE PRECISION
+        - length: 62
+          name: DOM_TELEFONOS
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_TIPODEVENTA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_TROQUEL
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_UNIDAD
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_VALORPOTENCIA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_VIA
+          scale: 0
+          type: VARCHAR
+        - length: 62
+          name: DOM_WEB
+          scale: 0
+          type: VARCHAR
+    generators:
+        - current_value: 12
+          name: ORDENLISTAAMOSTRAR

@@ -1,0 +1,389 @@
+database_name: firebird_database
+tables:
+    - name: CLIENTES
+      columns:
+        - name: ID
+          type: BIGINT
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: false
+        - name: LOGIN
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: CLAVE
+          type: VARCHAR
+          size: 16
+          scale: 0
+          nullable: true
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 64
+          scale: 0
+          nullable: true
+        - name: MAIL
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: PRECIOMDAT
+          type: VARCHAR
+          size: 9
+          scale: 0
+          nullable: true
+        - name: IDALFABETA
+          type: VARCHAR
+          size: 64
+          precision: 10
+          scale: 0
+          nullable: true
+        - name: IDGUIA
+          type: BIGINT
+          size: 8
+          precision: 10
+          scale: -3
+          nullable: true
+        - name: FECHAEXPIRACIONCLAVE
+          type: DATE
+          size: 4
+          scale: 0
+          nullable: true
+        - name: ULTIMOLOGMF
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: MAXORDEN
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: FECHAULTIMOLOGMF
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: MENSAJE
+          type: VARCHAR
+          size: 8000
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: CLIENTES_SERVICIOS
+      columns:
+        - name: CLIENTE
+          type: BIGINT
+          size: 8
+          precision: 10
+          scale: -2
+          nullable: false
+        - name: SERVICIO
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: false
+      primary_key:
+        - CLIENTE
+        - SERVICIO
+    - name: IPO_ARCHIVOS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: IDMANUAL
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: SEMANA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: DIARIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: ELIMINADO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+      primary_key:
+        - ID
+    - name: IPO_CLIENTES
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: USUARIO
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: CLAVE
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: EMAIL
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: ITEMS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: SERVICIO
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: MANUAL
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: SECUENCIA
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: FECHA
+          type: DATE
+          size: 4
+          scale: 0
+          nullable: true
+        - name: COMENTARIO
+          type: VARCHAR
+          size: 1024
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: LOG
+      columns:
+        - name: USUARIO
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: false
+        - name: ARCHIVO
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: IDITEM
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: IDMANUAL
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: IDSERVICIO
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: FECHAHORA
+          type: TIMESTAMP
+          size: 8
+          scale: 0
+          nullable: true
+        - name: FUENTE
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: IP
+          type: VARCHAR
+          size: 64
+          scale: 0
+          nullable: true
+        - name: IDCLIENTE
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+        - name: BASECOMPLETA
+          type: VARCHAR
+          size: 1
+          scale: 0
+          nullable: true
+        - name: ULTIMOLOG
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: true
+    - name: MANUALES
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 128
+          scale: 0
+          nullable: true
+        - name: MES
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+        - name: ANIO
+          type: SMALLINT
+          size: 2
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+    - name: SERVICIOS
+      columns:
+        - name: ID
+          type: INTEGER
+          size: 4
+          scale: 0
+          nullable: false
+        - name: DESCRIPCION
+          type: VARCHAR
+          size: 64
+          scale: 0
+          nullable: true
+      primary_key:
+        - ID
+views: []
+procedures:
+    - name: CLIENTE_ALTA
+      parameters:
+        - name: USUARIO
+          type: VARCHAR
+          direction: IN
+        - name: CLAVE
+          type: VARCHAR
+          direction: IN
+        - name: DESCRIPCION
+          type: VARCHAR
+          direction: IN
+        - name: MAIL
+          type: VARCHAR
+          direction: IN
+        - name: IDALFABETA
+          type: VARCHAR
+          direction: IN
+        - name: IDGUIA
+          type: BIGINT
+          direction: IN
+      definition: "declare variable ID numeric(10,2);\r\ndeclare variable PRECIOMDAT integer;\r\ndeclare variable PRECIOMDATCHAR varchar(9);\r\nbegin\r\n  /* Procedure Text */\r\n\r\n  select max(id) from clientes into :id;\r\n  id = id + 1;\r\n\r\n  select cast(max(precioMDat) as integer) from clientes into :precioMDat;\r\n  precioMDat=precioMDat/100;\r\n  precioMDat=precioMDat+1;\r\n  precioMDat=precioMDat*100;\r\n\r\n  select cast(:precioMDat as varchar(9)) from rdb$database into :precioMDatChar;\r\n  precioMDatChar = lpad(preciomdatchar,  9, '0');\r\n\r\n  insert into clientes(id, login, clave, descripcion, mail, idAlfabeta, idGuia, precioMDat, fechaExpiracionClave)\r\n  values(:id, :usuario, :clave, :descripcion, :mail, :idalfabeta, :idGuia, :precioMDatChar, '01.01.2050');\r\n\r\n  suspend;\r\nend"
+    - name: PRECIOSCLIENTE
+      parameters: []
+      definition: "declare variable UNPRECIO integer;\r\ndeclare variable IDCLIENTE numeric(10,2);\r\nbegin\r\n   unPrecio = 40000;\r\n   for\r\n      select idAlfabeta from clientes order by id into :idCliente\r\n   do begin\r\n      unPrecio = unPrecio + 100;\r\n      update clientes set precioMDat = LPAD(:unPrecio, 9, '0') where idAlfabeta = :idCliente;\r\n   end \r\nend"
+functions: []
+indexes:
+    - name: I_USUARIO
+      table_name: LOG
+      columns:
+        - USUARIO
+      unique: false
+      type: BTREE
+    - name: PK_CLIENTES
+      table_name: CLIENTES
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: PK_IPO_ARCHIVOS_1
+      table_name: IPO_ARCHIVOS
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: PK_ITEMS
+      table_name: ITEMS
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: IDX_ITEMS3
+      table_name: ITEMS
+      columns:
+        - SECUENCIA
+      unique: false
+      type: BTREE
+    - name: PK_CLIENTES_SERVICIOS
+      table_name: CLIENTES_SERVICIOS
+      columns:
+        - CLIENTE
+        - SERVICIO
+      unique: true
+      type: BTREE
+    - name: PK_IPO_CLIENTES_1
+      table_name: IPO_CLIENTES
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: PK_MANUALES
+      table_name: MANUALES
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: PK_SERVICIOS
+      table_name: SERVICIOS
+      columns:
+        - ID
+      unique: true
+      type: BTREE
+    - name: CLIENTES_IDX1
+      table_name: CLIENTES
+      columns:
+        - LOGIN
+      unique: true
+      type: BTREE
+    - name: IDX_CLIENTES1
+      table_name: CLIENTES
+      columns:
+        - CLAVE
+      unique: false
+      type: BTREE
+    - name: IDX_ITEMS1
+      table_name: ITEMS
+      columns:
+        - SERVICIO
+      unique: false
+      type: BTREE
+    - name: IDX_ITEMS2
+      table_name: ITEMS
+      columns:
+        - MANUAL
+      unique: false
+      type: BTREE
