@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(go:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "WebFetch(domain:docs.gofiber.io)",
+      "Bash(pkill:*)",
+      "Bash(find:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(cp:*)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)",
+      "WebFetch(domain:pkg.go.dev)",
+      "Bash(CGO_ENABLED=1 go build -o qubi)"
+    ],
+    "deny": []
+  }
+}
