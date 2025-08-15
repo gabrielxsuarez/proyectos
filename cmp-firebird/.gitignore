@@ -1,0 +1,4 @@
+**/*.exe
+cmp-firebird
+cmp-firebird.exe
+cmp-firebird.exe~
