@@ -1,0 +1,22 @@
+IA:
+	Claude: https://claude.ai
+	Gemini: https://gemini.google.com
+	Grok: https://grok.com
+	Perplexity: https://www.perplexity.ai
+	-
+	ChatGPT: https://chatgpt.com
+	DeepSeek: https://chat.deepseek.com
+	Kimi: https://www.kimi.com
+	Mistral: https://chat.mistral.ai
+	Z.AI: https://chat.z.ai
+Links
+	Google: https://www.google.com/
+	YouTube: https://www.youtube.com/
+	Translate: https://translate.google.com/
+	Maps: https://www.google.com.ar/maps
+-
+AlfaBeta
+	www.alfabeta.net: https://www.alfabeta.net/
+-
+Activo: pantalla_activa true 90s
+Config: notepad config/menu.txt

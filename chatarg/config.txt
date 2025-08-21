@@ -1,0 +1,2 @@
+sala: argentina
+servidor: wss://ws02.dalechatea.me:1242

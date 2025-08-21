@@ -1,0 +1,48 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-08-21 18:49 UTC
+Nmap scan report for ws02.dalechatea.me (51.161.13.145)
+Host is up (0.17s latency).
+Other addresses for ws02.dalechatea.me (not scanned): 2607:5300:203:6791::
+rDNS record for 51.161.13.145: ns570955.ip-51-161-13.net
+Not shown: 65496 closed tcp ports (reset)
+PORT      STATE    SERVICE
+21/tcp    open     ftp
+25/tcp    open     smtp
+53/tcp    open     domain
+80/tcp    open     http
+110/tcp   open     pop3
+111/tcp   open     rpcbind
+113/tcp   filtered ident
+143/tcp   open     imap
+443/tcp   open     https
+465/tcp   open     smtps
+587/tcp   open     submission
+993/tcp   open     imaps
+995/tcp   open     pop3s
+1239/tcp  open     nmsd
+1240/tcp  open     instantia
+1241/tcp  open     nessus
+1242/tcp  open     nmasoverip
+1245/tcp  open     isbconference2
+2077/tcp  open     tsrmagt
+2078/tcp  open     tpcsrvr
+2082/tcp  open     infowave
+2083/tcp  open     radsec
+2086/tcp  open     gnunet
+2087/tcp  open     eli
+2091/tcp  open     prp
+2095/tcp  open     nbx-ser
+2096/tcp  open     nbx-dir
+3306/tcp  filtered mysql
+6379/tcp  filtered redis
+6380/tcp  filtered unknown
+6696/tcp  filtered babel
+6697/tcp  filtered ircs-u
+6698/tcp  filtered unknown
+7000/tcp  filtered afs3-fileserver
+7001/tcp  open     afs3-callback
+7003/tcp  open     afs3-vlserver
+7004/tcp  open     afs3-kaserver
+7005/tcp  open     afs3-volser
+55642/tcp open     unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 67.67 seconds

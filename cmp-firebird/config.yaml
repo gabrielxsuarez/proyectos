@@ -1,0 +1,40 @@
+servidor: 127.0.0.1:3051
+
+timeout: 10
+
+bases:
+  acofar.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/acofar.fdb
+  acofarws.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/acofarws.fdb
+  appp.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/appp.fdb
+  asoprofarma.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/asoprofarma.fdb
+  avisos.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/avisos.fdb
+  clientes.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/clientes.fdb
+  contenidos.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/contenidos.fdb
+  cuitsws.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/cuitsws.fdb
+  directorio.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/directorio.fdb
+  encuestas.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/encuestas.fdb
+  estadisticas.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/estadisticas.fdb
+  ifarmacia.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/ifarmacia.fdb
+  ifarmaciaMarianita.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/ifarmaciaMarianita.fdb
+  ifarmaciaMFO.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/ifarmaciaMFO.fdb
+  interacciones.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/interacciones.fdb
+  iobras.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/iobras.fdb
+  listas.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/listas.fdb
+  logsabws.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/logsabws.fdb
+  manuales.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/manuales.fdb
+  mds.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/mds.fdb
+  notas.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/notas.fdb
+  padronesLP.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/padronesLP.fdb
+  padronesMDP.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/padronesMDP.fdb
+  perfumeria.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/perfumeria.fdb
+  prospectosAR.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/prospectosAR.fdb
+  prospectosCL.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/prospectosCL.fdb
+  publicidadessoftware.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/publicidadessoftware.fdb
+  suiza.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/suiza.fdb
+  suizo.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/suizo.fdb
+  usuariosweb.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/usuariosweb.fdb
+  winfarma.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/winfarma.fdb
+  winfarmaingresos.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/winfarmaingresos.fdb
+  winfarmaLaPlata.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/winfarmaLaPlata.fdb
+  winfarmaMarDelPlata.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/winfarmaMarDelPlata.fdb
+  wsprecios.fdb: sysdba:masterkey@localhost:3050/C:/AlfaBeta/firebird/wsprecios.fdb

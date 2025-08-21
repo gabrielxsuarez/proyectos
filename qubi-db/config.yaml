@@ -1,0 +1,2 @@
+ifarmacia.fdb: "sysdba:masterkey@localhost:3050/C:\\AlfaBeta\\firebird\\ifarmaciaMarianita.fdb"
+clientes.fdb: "sysdba:masterkey@localhost:3050/C:\\AlfaBeta\\firebird\\clientes.fdb"
