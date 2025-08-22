@@ -1,21 +1,2 @@
-Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-08-21 18:47 UTC
-Nmap scan report for ws01.dalechatea.me (172.67.75.153)
-Host is up (0.034s latency).
-Other addresses for ws01.dalechatea.me (not scanned): 104.26.14.97 104.26.15.97 2606:4700:20::681a:e61 2606:4700:20::681a:f61 2606:4700:20::ac43:4b99
-Not shown: 65522 filtered tcp ports (no-response)
-PORT     STATE SERVICE
-80/tcp   open  http
-443/tcp  open  https
-2052/tcp open  clearvisn
-2053/tcp open  knetd
-2082/tcp open  infowave
-2083/tcp open  radsec
-2086/tcp open  gnunet
-2087/tcp open  eli
-2095/tcp open  nbx-ser
-2096/tcp open  nbx-dir
-8080/tcp open  http-proxy
-8443/tcp open  https-alt
-8880/tcp open  cddbp-alt
-
-Nmap done: 1 IP address (1 host up) scanned in 97.20 seconds
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-08-22 22:33 UTC
+Nmap done: 0 IP addresses (0 hosts up) scanned in 10.05 seconds
