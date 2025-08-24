@@ -1,0 +1,17 @@
+docker run -d \
+  --name caddy \
+  --network dockernet \
+  -p 80:80 \
+  -p 443:443 \
+  -v /server1/caddy/Caddyfile:/etc/caddy/Caddyfile:Z \
+  -v /server1/caddy/data:/data:Z \
+  -v /server1/caddy/config:/config:Z \
+  --restart=unless-stopped \
+  docker.io/caddy:latest
+
+docker run -d \
+  --name nginx \
+  --network dockernet \
+  -v /server1/nginx/static:/usr/share/nginx/html:Z \
+  --restart=unless-stopped \
+  docker.io/library/nginx:latest
